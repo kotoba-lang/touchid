@@ -30,6 +30,9 @@
   (attest port request))
 
 (defn attest-and-store! [attestation-store attestation]
+  (when-not (:touchid/ok? attestation)
+    (throw (ex-info "TouchID attestation not successful"
+                    {:touchid/id (:touchid/id attestation)})))
   (when-not (:touchid/device-id attestation)
     (throw (ex-info "TouchID attestation missing device binding"
                     {:touchid/id (:touchid/id attestation)})))

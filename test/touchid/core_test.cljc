@@ -43,6 +43,15 @@
     (is (thrown? #?(:clj clojure.lang.ExceptionInfo :cljs ExceptionInfo)
                  (c/attest-once-and-store! challenge-store attestation-store port req)))))
 
+(deftest rejects-storing-a-failed-attestation
+  ;; A biometric match that failed (:touchid/ok? false) must never be
+  ;; persisted as a device attestation record -- otherwise a rejected
+  ;; attempt is indistinguishable, in the store, from a real success.
+  (let [req (m/request "t6" {:subject "did:web:example.com:alice"})
+        failed (m/attestation req false {:device-id "macbook" :credential-id "cred-1"})]
+    (is (thrown? #?(:clj clojure.lang.ExceptionInfo :cljs ExceptionInfo)
+                 (c/attest-and-store! (p/memory-attestation-store) failed)))))
+
 (deftest rejects-storage-without-device-binding
   (let [req (m/request "t4" {:subject "did:web:example.com:alice"})
         att (m/attestation req true {})]
