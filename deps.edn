@@ -3,7 +3,12 @@
  :aliases
  {:test {:extra-paths ["test"]
          :extra-deps {io.github.cognitect-labs/test-runner
-                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}
+                      ;; TEST-ONLY: JVM compiler for the touchid.datom parity
+                      ;; gate (touchid.datom-parity-test) — src is untouched.
+                      io.github.kotoba-lang/compiler
+                      {:git/url "https://github.com/kotoba-lang/amu.git"
+                       :git/sha "1e21a1f56613d7d4c7628af1945ebf1cf7862ff3"}}
          :main-opts ["-m" "cognitect.test-runner"]
          :exec-fn cognitect.test-runner.api/test}
   ;; clj-kondo as a Clojars lib (no Homebrew/system install needed).
