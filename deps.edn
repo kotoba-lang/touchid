@@ -8,7 +8,7 @@
  :aliases
  {:test {:extra-paths ["test"]
          :extra-deps {io.github.cognitect-labs/test-runner
-                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd6605cb6c0efc275e1df1736f6e90d4d73"}
                       ;; TEST-ONLY: JVM compiler for the touchid.datom parity
                       ;; gate (touchid.datom-parity-test) — src is untouched.
                       io.github.kotoba-lang/compiler
