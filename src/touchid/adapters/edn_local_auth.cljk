@@ -1,5 +1,5 @@
 (ns touchid.adapters.edn-local-auth
-  (:require [clojure.edn :as edn]
+  (:require [kotoba.lang.edn :as edn]
             [clojure.java.io :as io]
             [touchid.adapters.local-auth :as local-auth]))
 
