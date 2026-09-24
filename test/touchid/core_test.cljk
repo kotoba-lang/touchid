@@ -1,5 +1,5 @@
 (ns touchid.core-test
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [touchid.core :as c]
             [touchid.datom :as d]
             [touchid.model :as m]
