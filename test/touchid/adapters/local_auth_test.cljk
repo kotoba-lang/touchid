@@ -1,5 +1,5 @@
 (ns touchid.adapters.local-auth-test
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [touchid.adapters.local-auth :as a]
             [touchid.core :as c]
             [touchid.model :as m]))
